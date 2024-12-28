@@ -1,0 +1,205 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Light background color for contrast */
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #001f3d;  /* Navy Blue for headings */
+    text-align: center;
+    margin-bottom: 30px;  /* Increased gap between heading and elements */
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #001f3d;  /* Navy Blue for subheadings */
+    margin-bottom: 15px;
+  }
+  
+
+  /* Container Styling */
+  #industrySelection, #industryForm, #stationForm {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border: 1px solid #001f3d; /* Navy Blue border */
+  }
+  
+  #industrySelection h2, #industryForm h3, #stationForm h3 {
+    color: #001f3d; /* Navy Blue for headers inside the form sections */
+  }
+  
+  /* Form Inputs */
+  input[type="text"], input[type="email"], select {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Focus Effect */
+  input[type="text"]:focus, input[type="email"]:focus, select:focus {
+    border-color: #001f3d;  /* Navy Blue focus effect */
+    outline: none;
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #001f3d; /* Navy Blue button background */
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Added margin between buttons */
+  }
+  
+  /* Button Hover */
+  button:hover {
+    background-color: #003366; /* Slightly darker Navy Blue on hover */
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(1);
+  }
+  
+  /* Centered Popup Styling */
+  #successPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #d4edda;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #155724;
+    z-index: 1000;  /* Ensure it appears above other elements */
+  }
+  
+  #successPopup p {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  /* Background Overlay for Popup */
+  #successPopupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #industrySelection, #industryForm, #stationForm {
+      padding: 20px;
+      margin: 20px auto;
+    }
+  
+    h2 {
+      font-size: 1.75rem;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  
+    #successPopup {
+      width: 260px;
+    }
+  }
+
+  /* General Button Styles */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+  .main-action {
+    background-color: #4CAF50; /* Main action button color */
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .main-action:hover {
+    background-color: #45a049; /* Hover effect for main action */
+  }
+  
+  /* Secondary button (Register New Industry) */
+  .secondary-action {
+    background-color: #f4f4f4; /* Lighter background for secondary button */
+    color: #333;
+    width: auto;
+    margin: 10px 0;
+    padding: 10px 20px; /* Slightly smaller padding */
+    display: inline-block; /* Make it appear next to the main button */
+  }
+  
+  .secondary-action:hover {
+    background-color: #ddd; /* Hover effect for secondary button */
+  }
+  
+  .secondary-action:focus {
+    outline: none; /* Removes focus outline */
+  }
+
+.main-action {
+  background-color: #4CAF50; /* Main action button color */
+  color: white;
+  margin-bottom: 10px;
+}
+
+.main-action:hover {
+  background-color: #45a049; /* Hover effect for main action */
+}
+
+/* Secondary button (Register New Industry) */
+.secondary-action {
+  background-color: #f4f4f4; /* Lighter background for secondary button */
+  color: #333;
+  width: auto;
+  margin: 10px 0;
+  padding: 10px 20px; /* Slightly smaller padding */
+  display: inline-block; /* Make it appear next to the main button */
+}
+
+.secondary-action:hover {
+  background-color: #ddd; /* Hover effect for secondary button */
+}
+
+.secondary-action:focus {
+  outline: none; /* Removes focus outline */
+}
+  
