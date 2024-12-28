@@ -44,6 +44,14 @@ const loadIndustries = async () => {
       industries.sort((a, b) => a.name.localeCompare(b.name));
   
       industryList.innerHTML = ''; // Clear existing options
+
+       // Create and add the default "Select your Industry" option
+    const defaultOption = document.createElement('option');
+    defaultOption.value = ''; // Empty value to indicate no selection
+    defaultOption.textContent = 'select here'; // The text to show
+    defaultOption.disabled = true; // Make it non-selectable
+    defaultOption.selected = true; // Set it as the default option
+    industryList.appendChild(defaultOption);
   
       // Add sorted industries to the list
       industries.forEach(industry => {
