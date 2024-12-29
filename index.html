@@ -8,56 +8,66 @@
 </head>
 <body>
 
-  
+  <div class="background-overlay"></div>
+  <div class="container">
+  <div class="content">
+    <!-- Industry Selection -->
+    <div id="industrySelection">
+      <h2>Select Industry</h2>
+      <select id="industryList">
+        <!-- Industries will be populated here dynamically -->
+      </select>
+      <button id="confirmIndustryBtn" class="btn main-action">Confirm</button>
+      
+      <div class="or-container">
+        <hr class="line">
+        <span class="or-text">or</span>
+        <hr class="line">
+      </div>
+      
+      <button id="addIndustryBtn" class="btn secondary-action">Register New Industry</button>
+    </div>
 
-  <!-- Industry Selection -->
-  <div id="industrySelection">
-    <h2>Select Industry</h2>
-    <select id="industryList">
-      <!-- Industries will be populated here dynamically -->
-    </select>
-    <button id="confirmIndustryBtn" class="btn main-action:">Confirm</button>
-    <button id="addIndustryBtn" class="btn secondary-action">Register New Industry</button>
-    
+    <!-- New Industry Registration Form -->
+    <div id="industryForm" style="display: none;">
+      <h2>Register New Industry</h2>
+      <p>Please provide the details of the new industry to register.</p>
+      <form id="industryFormFields" novalidate>
+        <label for="industryName">Industry Name:</label>
+        <input type="text" id="industryName" placeholder="Enter industry name" required>
+
+        <label for="industryLocation">Location:</label>
+        <input type="text" id="industryLocation" placeholder="Enter location" required>
+
+        <label for="industryPhone">Phone:</label>
+        <input type="text" id="industryPhone" placeholder="Enter contact number" required>
+
+        <label for="industryEmail">Email:</label>
+        <input type="email" id="industryEmail" placeholder="Enter email address" required>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Station Registration Form -->
+    <div id="stationForm" style="display: none;">
+      <h2>Register Station for Industry: <span id="selectedIndustryName"></span></h2>
+      <p>Please provide the station details for the selected industry.</p>
+      <form id="stationFormFields" novalidate>
+        <label for="stationID">Station ID:</label>
+        <input type="text" id="stationID" placeholder="Enter station ID 'e.g.-STRG001'" required>
+
+        <label for="stationName">Station Name:</label>
+        <input type="text" id="stationName" placeholder="Enter station name" required>
+
+        <label for="stationLocation">Installation Location:</label>
+        <input type="text" id="stationLocation" placeholder="Enter installation location" required>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
-
-  <!-- New Industry Registration Form -->
-  <div id="industryForm" style="display: none;">
-    <h2>Register New Industry</h2>
-    <form id="industryFormFields">
-      <label for="industryName">Industry Name:</label>
-      <input type="text" id="industryName" required>
-
-      <label for="industryLocation">Location:</label>
-      <input type="text" id="industryLocation" required>
-
-      <label for="industryPhone">Phone:</label>
-      <input type="text" id="industryPhone" required>
-
-      <label for="industryEmail">Email:</label>
-      <input type="email" id="industryEmail" required>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-
-  <div id="stationForm" style="display: none;">
-    <h2>Register Station for Industry: <span id="selectedIndustryName"></span></h2>
-    <!-- Your station form fields go here -->
-    <form id="stationFormFields">
-      <label for="stationID">Station ID:</label>
-      <input type="text" id="stationID" required>
-
-      <label for="stationName">Station Name:</label>
-      <input type="text" id="stationName" required>
-
-      <label for="stationLocation">Installation Location:</label>
-      <input type="text" id="stationLocation" required>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+</div>
 
   <!-- Success Popup -->
   <div id="successPopup" style="display: none;">

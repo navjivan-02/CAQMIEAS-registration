@@ -1,205 +1,297 @@
-/* General Styling */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f6; /* Light background color for contrast */
-    color: #333;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #001f3d;  /* Navy Blue for headings */
-    text-align: center;
-    margin-bottom: 30px;  /* Increased gap between heading and elements */
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #001f3d;  /* Navy Blue for subheadings */
-    margin-bottom: 15px;
-  }
-  
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background-color: #f4f4f4; /* Fallback background color */
+}
 
-  /* Container Styling */
-  #industrySelection, #industryForm, #stationForm {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 25px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
-    border: 1px solid #001f3d; /* Navy Blue border */
-  }
-  
-  #industrySelection h2, #industryForm h3, #stationForm h3 {
-    color: #001f3d; /* Navy Blue for headers inside the form sections */
-  }
-  
-  /* Form Inputs */
-  input[type="text"], input[type="email"], select {
-    width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-    transition: border-color 0.3s ease;
-  }
-  
-  /* Focus Effect */
-  input[type="text"]:focus, input[type="email"]:focus, select:focus {
-    border-color: #001f3d;  /* Navy Blue focus effect */
-    outline: none;
-  }
-  
-  /* Button Styling */
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #001f3d; /* Navy Blue button background */
-    color: white;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Added margin between buttons */
-  }
-  
-  /* Button Hover */
-  button:hover {
-    background-color: #003366; /* Slightly darker Navy Blue on hover */
-    transform: scale(1.05);
-  }
-  
-  button:active {
-    transform: scale(1);
-  }
-  
-  /* Centered Popup Styling */
-  #successPopup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    padding: 20px;
-    background-color: #d4edda;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    color: #155724;
-    z-index: 1000;  /* Ensure it appears above other elements */
-  }
-  
-  #successPopup p {
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-  
-  /* Background Overlay for Popup */
-  #successPopupOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    z-index: 999;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #industrySelection, #industryForm, #stationForm {
-      padding: 20px;
-      margin: 20px auto;
-    }
-  
-    h2 {
-      font-size: 1.75rem;
-    }
-  
-    button {
-      font-size: 1rem;
-    }
-  
-    #successPopup {
-      width: 260px;
-    }
-  }
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../res/background.png"); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Apply blur to the background */
+  z-index: -1; /* Ensure background stays behind the content */
+}
 
-  /* General Button Styles */
-.btn {
+.content {
+  position: relative;
+  z-index: 1; /* Keep content above the background */
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 1200px; /* Limit max width */
+  margin: 0 20px; /* Default side margins */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* General Form Container Styling */
+#industrySelection, #industryForm, #stationForm {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #001f3d;
+}
+
+h2, h3 {
+  color: #001f3d; /* Navy Blue for headings */
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Form Inputs */
+input[type="text"], input[type="email"], select {
   width: 100%;
   padding: 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-  .main-action {
-    background-color: #4CAF50; /* Main action button color */
-    color: white;
-    margin-bottom: 10px;
-  }
-  
-  .main-action:hover {
-    background-color: #45a049; /* Hover effect for main action */
-  }
-  
-  /* Secondary button (Register New Industry) */
-  .secondary-action {
-    background-color: #f4f4f4; /* Lighter background for secondary button */
-    color: #333;
-    width: auto;
-    margin: 10px 0;
-    padding: 10px 20px; /* Slightly smaller padding */
-    display: inline-block; /* Make it appear next to the main button */
-  }
-  
-  .secondary-action:hover {
-    background-color: #ddd; /* Hover effect for secondary button */
-  }
-  
-  .secondary-action:focus {
-    outline: none; /* Removes focus outline */
-  }
-
-.main-action {
-  background-color: #4CAF50; /* Main action button color */
-  color: white;
-  margin-bottom: 10px;
-}
-
-.main-action:hover {
-  background-color: #45a049; /* Hover effect for main action */
-}
-
-/* Secondary button (Register New Industry) */
-.secondary-action {
-  background-color: #f4f4f4; /* Lighter background for secondary button */
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
   color: #333;
-  width: auto;
-  margin: 10px 0;
-  padding: 10px 20px; /* Slightly smaller padding */
-  display: inline-block; /* Make it appear next to the main button */
+  transition: border-color 0.3s ease;
 }
 
-.secondary-action:hover {
-  background-color: #ddd; /* Hover effect for secondary button */
+/* Focus Effect */
+input:focus, select:focus {
+  border-color: #001f3d;
+  outline: none;
 }
 
-.secondary-action:focus {
-  outline: none; /* Removes focus outline */
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #001f3d;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
-  
+
+/* Button Hover */
+button:hover {
+  background-color: #003366;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(1);
+}
+
+/* Invalid and Valid Input Styling */
+input:invalid, select:invalid {
+  border-color: red;
+}
+
+input:valid, select:valid {
+  border-color: green;
+}
+
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Success Popup Styling */
+#successPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: #d4edda;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #155724;
+  z-index: 1000;
+}
+
+#successPopup p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#successPopupOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Apply the same style for the Confirm button as Submit button */
+#confirmIndustryBtn,
+button[type="submit"] {
+  padding: 10px 20px; /* Add padding to the buttons */
+  background-color: #4CAF50; /* Green background for the button */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Set font size for readability */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Optional: Change background color on hover */
+#confirmIndustryBtn:hover,
+button[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Optional: Disable button styles */
+button[type="submit"]:disabled,
+#confirmIndustryBtn:disabled {
+  background-color: #ccc; /* Gray out the button when disabled */
+  cursor: not-allowed; /* Change cursor when disabled */
+}
+
+
+/* OR Separator Styling */
+.or-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.or-text {
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+}
+
+/* Responsive Design */
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .content {
+    margin: 0 10px;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  #successPopup {
+    width: 260px;
+  }
+
+  #industrySelection, #industryForm, #stationForm {
+    padding: 20px;
+    margin: 20px auto;
+  }
+}
+
+/* Tablet View */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .content {
+    margin: 0 15px;
+    padding: 15px;
+  }
+
+  #industrySelection, #industryForm, #stationForm {
+    padding: 20px;
+  }
+}
+
+/* Large Screen (Desktop) */
+@media (min-width: 1024px) {
+  .content {
+    margin: 0 30px;
+    padding: 30px;
+  }
+}
+
+/* Add some margin or padding for the form fields */
+form {
+  padding: 20px; /* Add space inside the form */
+  margin: 20px auto; /* Ensure form is centered and has space around it */
+  background-color: #fff; /* Optional: to make the background stand out */
+  border-radius: 8px; /* Optional: to add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: to add some shadow */
+}
+
+/* Input fields and textarea should have some padding for better look */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%; /* Ensure full width for input fields */
+  padding: 10px; /* Add padding inside the input fields */
+  margin-bottom: 15px; /* Add space below each input */
+  border: 1px solid #ccc; /* Border for input fields */
+  border-radius: 4px; /* Rounded borders for the inputs */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Button styling */
+button[type="submit"],
+button[type="button"] {
+  padding: 10px 20px; /* Add padding to buttons */
+  background-color: #4CAF50; /* Green background for the button */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer;
+  font-size: 16px; /* Increase font size for readability */
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc; /* Gray out the button when disabled */
+}
+
+/* Add space between form elements */
+form > div {
+  margin-bottom: 20px;
+}
+
