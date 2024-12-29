@@ -9,7 +9,7 @@ body {
   align-items: center;
   overflow: hidden;
   position: relative;
-  background-color: #fff; /* White background */
+  background-color: transparent; /* White background */
 }
 
 .background-overlay {
@@ -30,6 +30,13 @@ h2, h3, label, p, .or-text, .success-message {
   color: rgb(18, 1, 1); /* Dark color for text to contrast with white background */
 }
 
+#industryForm{
+  position: relative;
+  text-align: center;
+  color: #333; /* Dark text for legibility */
+  margin: 10px
+}
+
 /* Main Content Styling */
 .content {
   position: relative;
@@ -44,16 +51,6 @@ h2, h3, label, p, .or-text, .success-message {
 }
 
 /* Form and Container Styling */
-#industrySelection, #industryForm, #stationForm {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 25px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid #001f3d;
-  color: #333; /* Dark text for form */
-}
 
 h2, h3 {
   font-weight: 600;
@@ -75,7 +72,7 @@ h3 {
 }
 
 /* Form Inputs Styling */
-input[type="text"], input[type="email"], select {
+select {
   width: 100%;
   padding: 12px;
   margin: 15px 0;
@@ -85,6 +82,32 @@ input[type="text"], input[type="email"], select {
   color: #333;
   transition: border-color 0.3s ease;
 }
+
+#industrySelection, #industryForm, #stationForm {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #001f3d;
+  color: #333; /* Dark text for form */
+}
+
+#stationID, #stationName, #stationLocation, #industryName, #industryLocation, #industryPhone, #industryEmail {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
 
 /* Focus Effect */
 input:focus, select:focus {
@@ -201,7 +224,7 @@ label {
 
   #industrySelection, #industryForm, #stationForm {
     padding: 20px;
-    margin: 20px auto;
+    margin: 20px;
   }
 
   /* Ensure text remains legible on small screens */
@@ -216,7 +239,7 @@ label {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .content {
-    margin: 0 15px;
+    margin: 15px;
     padding: 15px;
   }
 
