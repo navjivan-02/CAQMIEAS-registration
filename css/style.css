@@ -1,3 +1,4 @@
+/* General Body and Layout Styling */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
@@ -8,7 +9,7 @@ body {
   align-items: center;
   overflow: hidden;
   position: relative;
-  background-color: #f4f4f4; /* Fallback background color */
+  background-color: #fff; /* White background */
 }
 
 .background-overlay {
@@ -24,19 +25,25 @@ body {
   z-index: -1; /* Ensure background stays behind the content */
 }
 
+/* Ensure text visibility against the background */
+h2, h3, label, p, .or-text, .success-message {
+  color: rgb(18, 1, 1); /* Dark color for text to contrast with white background */
+}
+
+/* Main Content Styling */
 .content {
   position: relative;
   z-index: 1; /* Keep content above the background */
   text-align: center;
-  color: white;
+  color: #333; /* Dark text for legibility */
   width: 100%;
-  max-width: 1200px; /* Limit max width */
-  margin: 0 20px; /* Default side margins */
+  max-width: 1200px;
+  margin: 0 20px;
   padding: 20px;
   box-sizing: border-box;
 }
 
-/* General Form Container Styling */
+/* Form and Container Styling */
 #industrySelection, #industryForm, #stationForm {
   max-width: 600px;
   margin: 40px auto;
@@ -45,15 +52,17 @@ body {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #001f3d;
+  color: #333; /* Dark text for form */
 }
 
 h2, h3 {
-  color: #001f3d; /* Navy Blue for headings */
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: 600;
+  color: #001f3d; /* Navy Blue */
   text-align: center;
   margin-bottom: 30px;
 }
@@ -62,9 +71,10 @@ h3 {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 15px;
+  color: #001f3d;
 }
 
-/* Form Inputs */
+/* Form Inputs Styling */
 input[type="text"], input[type="email"], select {
   width: 100%;
   padding: 12px;
@@ -97,7 +107,7 @@ button {
   margin-bottom: 20px;
 }
 
-/* Button Hover */
+/* Button Hover Effect */
 button:hover {
   background-color: #003366;
   transform: scale(1.05);
@@ -114,11 +124,6 @@ input:invalid, select:invalid {
 
 input:valid, select:valid {
   border-color: green;
-}
-
-form button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
 }
 
 /* Success Popup Styling */
@@ -143,44 +148,6 @@ form button:disabled {
   font-weight: 500;
 }
 
-#successPopupOverlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-/* Apply the same style for the Confirm button as Submit button */
-#confirmIndustryBtn,
-button[type="submit"] {
-  padding: 10px 20px; /* Add padding to the buttons */
-  background-color: #4CAF50; /* Green background for the button */
-  color: white; /* White text color */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Set font size for readability */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
-}
-
-/* Optional: Change background color on hover */
-#confirmIndustryBtn:hover,
-button[type="submit"]:hover {
-  background-color: #45a049; /* Darker green on hover */
-}
-
-/* Optional: Disable button styles */
-button[type="submit"]:disabled,
-#confirmIndustryBtn:disabled {
-  background-color: #ccc; /* Gray out the button when disabled */
-  cursor: not-allowed; /* Change cursor when disabled */
-}
-
-
 /* OR Separator Styling */
 .or-container {
   display: flex;
@@ -203,9 +170,17 @@ button[type="submit"]:disabled,
   border: none;
 }
 
-/* Responsive Design */
+/* Label Styling */
+label {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
 
-/* Mobile View */
+/* Responsiveness */
 @media (max-width: 768px) {
   .content {
     margin: 0 10px;
@@ -228,9 +203,17 @@ button[type="submit"]:disabled,
     padding: 20px;
     margin: 20px auto;
   }
+
+  /* Ensure text remains legible on small screens */
+  h2, p, label {
+    font-size: 1.2rem;
+  }
+
+  .or-text {
+    font-size: 1.1rem;
+  }
 }
 
-/* Tablet View */
 @media (min-width: 768px) and (max-width: 1024px) {
   .content {
     margin: 0 15px;
@@ -240,58 +223,23 @@ button[type="submit"]:disabled,
   #industrySelection, #industryForm, #stationForm {
     padding: 20px;
   }
+
+  h2, p, label {
+    font-size: 1.5rem;
+  }
 }
 
-/* Large Screen (Desktop) */
 @media (min-width: 1024px) {
   .content {
     margin: 0 30px;
     padding: 30px;
   }
-}
 
-/* Add some margin or padding for the form fields */
-form {
-  padding: 20px; /* Add space inside the form */
-  margin: 20px auto; /* Ensure form is centered and has space around it */
-  background-color: #fff; /* Optional: to make the background stand out */
-  border-radius: 8px; /* Optional: to add rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: to add some shadow */
-}
+  h2 {
+    font-size: 2rem;
+  }
 
-/* Input fields and textarea should have some padding for better look */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-select,
-textarea {
-  width: 100%; /* Ensure full width for input fields */
-  padding: 10px; /* Add padding inside the input fields */
-  margin-bottom: 15px; /* Add space below each input */
-  border: 1px solid #ccc; /* Border for input fields */
-  border-radius: 4px; /* Rounded borders for the inputs */
-  box-sizing: border-box; /* Include padding in width calculation */
+  #industrySelection, #industryForm, #stationForm {
+    max-width: 700px;
+  }
 }
-
-/* Button styling */
-button[type="submit"],
-button[type="button"] {
-  padding: 10px 20px; /* Add padding to buttons */
-  background-color: #4CAF50; /* Green background for the button */
-  color: white; /* White text color */
-  border: none;
-  border-radius: 4px; /* Rounded corners for buttons */
-  cursor: pointer;
-  font-size: 16px; /* Increase font size for readability */
-}
-
-button[type="submit"]:disabled {
-  background-color: #ccc; /* Gray out the button when disabled */
-}
-
-/* Add space between form elements */
-form > div {
-  margin-bottom: 20px;
-}
-
